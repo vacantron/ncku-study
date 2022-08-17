@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import GlobalLayout from '@/components/GlobalLayout';
 import { genStore } from '@/redux/store';
 import sessionOptions, { Mode, User } from '~/lib/session';
+import ThemeProvider from '~/src/theme/ThemeProvider';
 
 import '~/styles/global.scss';
 
@@ -31,9 +32,11 @@ const MyApp = ({
 
     return (
         <Provider store={store.current}>
-            <GlobalLayout>
-                <Component {...pageProps} />
-            </GlobalLayout>
+            <ThemeProvider>
+                <GlobalLayout>
+                    <Component {...pageProps} />
+                </GlobalLayout>
+            </ThemeProvider>
         </Provider>
     );
 };
